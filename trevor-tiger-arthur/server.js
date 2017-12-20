@@ -13,6 +13,10 @@ app.post('/articles', bodyParser, function(request, response) {
   console.log(request.body);
   response.send('Record posted to server!!');
 })
+app.get('/new', (request, response) => {
+  response.sendFile('new.html', {root: './public'})
+})
+app.use((request, response) => response.status(404).send('Error 404, Try again...'))
 app.listen(PORT, () =>{
   console.log('Listening on port: ' + PORT)
 })

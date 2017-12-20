@@ -73,8 +73,8 @@ articleView.setTeasers = () => {
   });
 };
 
-// COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
+// The function initNewArticlePage is invoked in the new.html page, the initNewArticlePage it runs thru the various functions of creating a new article. 
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -86,8 +86,8 @@ articleView.initNewArticlePage = () => {
   $('#new-form').on('submit', articleView.submit);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When is this function called? What event ultimately triggers its execution?
+// articleView create is called in the new article page function and is triggered by any change in html text area or input field.  
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -111,8 +111,8 @@ articleView.create = () => {
   $('#article-json').val(`${JSON.stringify(article)},`);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When is this function called? What event ultimately triggers its execution?
+// The articleView submit is called on the JQuery function on submit, using the .on(submit) trigger.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -124,8 +124,8 @@ articleView.submit = event => {
     publishedOn: $('#article-published:checked').length ? new Date() : null
   });
 
-  // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // COMMENTED: Where is this function defined? When is this function called? What event ultimately triggers its execution?
+  // The article insertRecord is defined in the article.prototype. insertrecord which is in article.js which is triggered when a new article is created.
   article.insertRecord();
 }
 
